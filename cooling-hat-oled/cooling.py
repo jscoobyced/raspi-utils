@@ -14,9 +14,9 @@ hat_addr = 0x0d
 fan_reg = 0x08
 fan_state = 3
 count = 0
-TEMP_HIGH = 55
-TEMP_MEDIUM = 53
-TEMP_LOW = 48
+TEMP_HIGH = 58
+TEMP_MEDIUM = 55
+TEMP_LOW = 54
 
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
