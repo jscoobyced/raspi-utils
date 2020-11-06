@@ -11,10 +11,12 @@ import smbus
 bus = smbus.SMBus(1)
 
 hat_addr = 0x0d
-rgb_effect_reg = 0x04
 fan_reg = 0x08
 fan_state = 3
 count = 0
+TEMP_HIGH = 55
+TEMP_MEDIUM = 53
+TEMP_LOW = 48
 
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
@@ -137,17 +139,17 @@ setFanSpeed(0x00)
 
 while True:
     setOLEDshow()
-    if g_temp >= 55:
+    if g_temp >= TEMP_HIGH:
         if fan_state != 2:
-            setFanSpeed(0x01)
+            setFanSpeed(0x02)
             fan_state = 2
             setRGB(0xff, 0x00, 0x00)
-    elif g_temp <= 54:
+    if g_temp > TEMP_LOW and g_temp <= TEMP_MEDIUM:
         if fan_state != 1:
-            setFanSpeed(0x00)
+            setFanSpeed(0x01)
             fan_state = 1
             setRGB(0x00, 0xff, 0x00)
-    elif g_temp <= 48:
+    if g_temp <= TEMP_LOW:
         if fan_state != 0:
             setFanSpeed(0x00)
             fan_state = 0
