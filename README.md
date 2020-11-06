@@ -11,5 +11,6 @@ git clone https://github.com/jscoobyced/raspi-utils
 cd /tmp/raspi-utils
 sudo mv cooling-hat-oled /opt/cooling-fan
 cd /opt/cooling-fan
+chmod +x install.sh startup.sh vcgencmd
 sudo ./install.sh
 ```

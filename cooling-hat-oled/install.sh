@@ -11,5 +11,5 @@ pip3 install Adafruit-SSD1306
 
 echo "Installing script at boot by systemd"
 ln -s /opt/cooling-fan/cooling.service /etc/systemd/system/
-systemctl start cooling.service
 systemctl enable cooling.service
+systemctl start cooling.service
