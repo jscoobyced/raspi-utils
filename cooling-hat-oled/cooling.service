@@ -1,0 +1,9 @@
+[Unit]
+Description=Cooling service
+After=network.target
+
+[Service]
+ExecStart=/opt/cooling-fan/startup.sh
+
+[Install]
+WantedBy=multi-user.target
