@@ -1,0 +1,9 @@
+/var/log/powerlog.log
+{
+	rotate 1
+	weekly
+	missingok
+	notifempty
+	compress
+	delaycompress
+}
