@@ -148,7 +148,7 @@ while True:
         if fan_state != 1:
             setFanSpeed(0x01)
             fan_state = 1
-            setRGB(0x00, 0xff, 0x00)
+            setRGB(0xff, 0xff, 0x00)
     if g_temp < TEMP_LOW:
         if fan_state != 0:
             setFanSpeed(0x00)
