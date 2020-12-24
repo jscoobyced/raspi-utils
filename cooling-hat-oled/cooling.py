@@ -103,8 +103,6 @@ def setOLEDshow():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-    #cmd = "top -bn1 | grep load | awk '{printf \"CPU:%.0f%%\", $(NF-2)*100}'"
-    #CPU = subprocess.check_output(cmd, shell = True)
     CPU = getCPULoadRate()
 
     cmd = os.popen('./vcgencmd measure_temp').readline()
@@ -141,6 +139,8 @@ while True:
     setOLEDshow()
     if g_temp > TEMP_HIGH:
         if fan_state != 2:
+            setFanSpeed(0x01)
+            time.sleep(.5)
             setFanSpeed(0x02)
             fan_state = 2
             setRGB(0xff, 0x00, 0x00)
